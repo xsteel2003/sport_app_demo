@@ -1,5 +1,5 @@
 fastai==2.7.15
-numpy==2.0.0
+numpy==1.19.3
 pandas==2.2.2
 Pillow==10.3.0
 scikit_surprise==1.1.4
