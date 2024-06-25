@@ -19,7 +19,7 @@ import tempfile
 #import cloudinary
 #import cloudinary.uploader
 
-pathlib.PosixPath = pathlib.WindowsPath
+# pathlib.PosixPath = pathlib.WindowsPath
 
 #cloudinary.config( cloud_name = "dvjx06ia", api_key = "24594734477959", api_secret = "<your_api_secret>"  # 直接复制上面)
 
