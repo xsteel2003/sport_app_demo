@@ -13,6 +13,9 @@ import pathlib
 from ImageUnderstanding import getAnswer, setImage
 import websocket
 from fastai.vision.all import load_learner
+import requests
+import os
+import tempfile
 #import cloudinary
 #import cloudinary.uploader
 
@@ -155,7 +158,23 @@ def main():
             percentage_of_total = (total_score / 25) * 100
             st.write(f'Your percentage of total possible score: {percentage_of_total}%')
 
-model_path =r"tupianshibie.pkl"
+
+@st.cache_resource
+def download_file(url, local_filename):
+    with requests.get(url, stream=True) as r:
+        r.raise_for_status()
+        with tempfile.NamedTemporaryFile(delete=False) as tmp_file:
+            for chunk in r.iter_content(chunk_size=8192):
+                tmp_file.write(chunk)
+    return tmp_file.name
+
+
+# 文件URL
+file_url = "http://static.wingetgui.com/models/tupianshibie.pkl"
+
+local_file_path = download_file(file_url, "tupianshibie.pkl")
+
+model_path =local_file_path
 
 # 加载模型
 learn_inf = load_learner(model_path)
