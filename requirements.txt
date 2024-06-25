@@ -1,8 +1,8 @@
 fastai==2.7.15
-numpy
+numpy==1.24.3
 pandas
 Pillow==10.3.0
-scikit_surprise==1.1.4
+scikit_surprise
 streamlit
-surprise==0.1
+surprise
 websocket_client==1.8.0
